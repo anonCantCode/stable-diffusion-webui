@@ -14,14 +14,15 @@ from modules.hypernetworks import hypernetwork
 
 import ldm.modules.attention
 import ldm.modules.diffusionmodules.model
+from typing import Optional
 
 diffusionmodules_model_AttnBlock_forward = ldm.modules.diffusionmodules.model.AttnBlock.forward
 
 
 class SdOptimization:
     name: str = None
-    label: str | None = None
-    cmd_opt: str | None = None
+    label: Optional[str] = None
+    cmd_opt: Optional[str] = None
     priority: int = 0
 
     def title(self):
