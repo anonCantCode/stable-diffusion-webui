@@ -7,7 +7,7 @@ import re
 import warnings
 import json
 from threading import Thread
-from typing import Iterable
+from typing import Iterable, Optional
 
 from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
@@ -186,7 +186,7 @@ def get_gradio_auth_creds() -> Iterable[tuple[str, ...]]:
     Convert the gradio_auth and gradio_auth_path commandline arguments into
     an iterable of (username, password) tuples.
     """
-    def process_credential_line(s) -> tuple[str, ...] | None:
+    def process_credential_line(s: str) -> Optional[tuple[str, ...]]:
         s = s.strip()
         if not s:
             return None
