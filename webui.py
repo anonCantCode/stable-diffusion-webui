@@ -186,7 +186,7 @@ def get_gradio_auth_creds() -> Iterable[tuple[str, ...]]:
     Convert the gradio_auth and gradio_auth_path commandline arguments into
     an iterable of (username, password) tuples.
     """
-    def process_credential_line(s: str) -> Optional[tuple[str, ...]]:
+    def process_credential_line(s) -> Optional[tuple[str, ...]]:
         s = s.strip()
         if not s:
             return None
